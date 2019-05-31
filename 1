@@ -1,0 +1,10 @@
+#!/bin/bash
+
+file="/home/vagrant/backups/db$(date +\%F).sql"
+if [ ! -f "$file" ]
+then
+echo "$0: File '${file}' not found"
+else
+mysql  -u  root grupi  < /home/vagrant/backups/db$(date +\%F).sql
+echo "File '${file}' exists and database is restored!"
+fi
